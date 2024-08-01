@@ -55,6 +55,7 @@
             <namespace></namespace>
             <remapping>~/out:=${ros_topic}</remapping>
           </ros>
+          <!-- TODO: Determine how to achieve the below output type with new gazebo -->
           <output_type>sensor_msgs/Range</output_type>
           <radiation_type>${radiation}</radiation_type>
           <frame_name>${name}_link</frame_name>
