@@ -39,14 +39,15 @@
 
     <!-- Odometry plugin for ground truth -->
     <gazebo>
-      <plugin filename="libgazebo_world_odometry.so" name="gazebo_ros_odometry">
-        <frame_name>world</frame_name>
-        <body_name>base_footprint</body_name>
-        <topic_name>ground_truth_odom</topic_name>
-        <update_rate>100.0</update_rate>
-        <xacro:if value="${is_multiple}">
-          <namespace>/${nsp}</namespace>
-        </xacro:if>
+      <!-- <plugin filename="libgazebo_world_odometry.so" name="gazebo_ros_odometry"> -->
+       <plugin filename="ignition-gazebo-odometry-publisher-system" name="ignition::gazebo::systems::OdometryPublisher">
+        <odom_frame>world</odom_frame>
+        <robot_base_frame>base_footprint</robot_base_frame>
+        <odom_topic>ground_truth_odom</odom_topic>
+        <odom_publish_frequency>100.0</odom_publish_frequency>
+        <!-- <xacro:if value="${is_multiple}"> -->
+          <!-- <namespace>/${nsp}</namespace> TODO: I suppose you would resolve such a situation in the bridge now?--> 
+        <!-- </xacro:if> -->
       </plugin>
     </gazebo>
 
