@@ -27,7 +27,7 @@ limitations under the License.
     <!-- Init the ROS 2 control gazebo interface -->
     <xacro:if value="${use_sim_time}">
       <gazebo>
-        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
           <parameters>$(find pmb2_description)/ros2_control/gazebo_controller_manager_cfg.yaml</parameters>
         </plugin>
       </gazebo>
@@ -41,7 +41,7 @@ limitations under the License.
 
         <!-- HW interface gazebo-->
         <hardware>
-          <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+           <plugin>ign_ros2_control/IgnitionSystem</plugin>
         </hardware>
 
         <!-- IMU sensor (only in simulation)-->
